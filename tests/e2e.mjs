@@ -95,13 +95,18 @@ async function runScenario(browser, contextOptions, label) {
   // تصفية التصنيفات
   const drinksTab = page.locator('[data-category="drinks"]');
   await drinksTab.click();
-  await page.waitForFunction(() => document.querySelectorAll("#menu-grid .product-card").length === 3);
+  await page.waitForFunction(() => document.querySelectorAll("#menu-grid .product-card").length === 4);
   const drinksCount = await cards.count();
-  check(drinksCount === 3, `تبويب المشروبات يعرض ${drinksCount} أصناف فقط`);
+  check(drinksCount === 4, `تبويب المشروبات يعرض ${drinksCount} أصناف فقط (من أصل ${cardCount})`);
   check(
     (await drinksTab.getAttribute("aria-selected")) === "true",
     "التبويب النشط يُعلَّم بـ aria-selected"
   );
+
+  const sidesTab = page.locator('[data-category="sides"]');
+  await sidesTab.click();
+  await page.waitForFunction(() => document.querySelectorAll("#menu-grid .product-card").length === 3);
+  check((await cards.count()) === 3, "تبويب الوجبات الجانبية يعرض 3 أصناف فقط");
 
   await page.locator('[data-category="all"]').click();
   await page.waitForFunction(() => document.querySelectorAll("#menu-grid .product-card").length >= 9);
