@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Burger House | برغر طازج مشوي على الفحم — عمّان</title>
+  <meta name="description" content="Burger House — موقع تجريبي لمطعم برغر في عمّان: قائمة برغر ووجبات جانبية ومشروبات، سلة مشتريات وتوصيل وطلب عبر واتساب. البيانات والأسعار تجريبية.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#1C140F">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Burger House | برغر طازج مشوي على الفحم">
+  <meta property="og:description" content="موقع تجريبي لمطعم برغر: قائمة طعام، سلة مشتريات، وطلب عبر واتساب.">
+  <meta property="og:image" content="/assets/images/hero-burger.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/tajawal-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/images/hero-burger.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى الرئيسي</a>
+
+  <!-- أيقونات SVG مستخدمة في الصفحة -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M3 4h2.2l2.4 10.6a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="10" cy="20" r="1.6" fill="currentColor"/><circle cx="18" cy="20" r="1.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.8h6V7m-8 0 1 13h8l1-13M10 11v5m4-5v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.48.7.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26C2.16 6.44 6.6 2 12.05 2c2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.41Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3.5 9.4 8l-2 1.6a12 12 0 0 0 5.9 5.9l1.6-2 4.6 2.4-1.3 3.1c-.4.9-1.3 1.4-2.3 1.2C9.1 19.1 4.9 14.9 3.8 8.2c-.2-1 .4-2 1.3-2.3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4.5 7.5 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.6 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="18.5" cy="17" r="3.3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 17h6l-2-8H9m3 0 4 8M14 6.5h2.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5.5 4.4 5.5 9a5.5 5.5 0 0 1-11 0c0-1.8.8-3.3 1.8-4.4.3 1.4 1.2 2.2 2 2.2 1.8 0 2.3-3.2 1.7-6.8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 8.5 4 15a5 5 0 0 0 5 5c6.5 0 11-6 11-16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4.5 19.5C7 15 10 12 15.5 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="#/" aria-label="Burger House — الصفحة الرئيسية">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <path d="M5 13.5c0-4 4.9-7 11-7s11 3 11 7" fill="#F2A93B"/>
+            <path d="M4.5 16h23M5 20h22" stroke="#FBF5EC" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M6 23.5c0 1.4 1.6 2.5 3.5 2.5h13c1.9 0 3.5-1.1 3.5-2.5" fill="#E4571F"/>
+            <circle cx="11" cy="18" r="1" fill="#FBF5EC"/><circle cx="16" cy="18" r="1" fill="#FBF5EC"/><circle cx="21" cy="18" r="1" fill="#FBF5EC"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>Burger House</strong>
+          <small>برغر هاوس · عمّان</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="#/" data-nav="home" class="nav__link is-active">الرئيسية</a>
+        <a href="#menu" data-scroll-to="menu" class="nav__link">القائمة</a>
+        <a href="#popular" data-scroll-to="popular" class="nav__link">الأكثر طلباً</a>
+        <a href="#contact" data-scroll-to="contact" class="nav__link">تواصل معنا</a>
+      </nav>
+
+      <div class="header__actions">
+        <button type="button" class="cart-button" data-cart-open aria-label="فتح سلة المشتريات">
+          <svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg>
+          <span class="cart-button__text">السلة</span>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ═══════════ الصفحة الرئيسية ═══════════ -->
+    <div data-view="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span> مطعم برغر تجريبي · عمّان، الأردن</p>
+            <h1 id="hero-title">برغر <span class="hl">طازج</span> على الفحم،<br>بطعم يخلّيك ترجع.</h1>
+            <p class="hero__lead">
+              لحم بقري يُفرم يومياً، خبز بريوش طازج، وصوصات تُحضَّر في مطبخنا.
+              اطلب الآن واستلم خلال <strong data-config="estimatedDelivery">35–45 دقيقة</strong>.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#menu" data-scroll-to="menu">
+                <svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg>
+                استعرض القائمة
+              </a>
+              <button type="button" class="btn btn--ghost-light" data-cart-open>
+                سلتي
+                <span class="btn__count" data-cart-count hidden>0</span>
+              </button>
+            </div>
+            <ul class="hero__stats">
+              <li><strong>12</strong><span>صنفاً على القائمة</span></li>
+              <li><strong data-config="estimatedDelivery">35–45</strong><span>دقيقة توصيل</span></li>
+              <li><strong>4.8<svg class="icon icon--star" aria-hidden="true"><use href="#i-star"/></svg></strong><span>تقييم تجريبي</span></li>
+            </ul>
+          </div>
+
+          <div class="hero__media">
+            <img src="/assets/images/hero-burger.webp" width="1600" height="1000"
+                 alt="برغر لحم بقري طازج بالجبنة والخس على خبز بريوش (صورة توضيحية)"
+                 fetchpriority="high" decoding="async">
+            <div class="hero__chip">
+              <svg class="icon" aria-hidden="true"><use href="#i-bike"/></svg>
+              توصيل خلال <span data-config="estimatedDelivery">35–45 دقيقة</span>
+            </div>
+            <div class="hero__rating">
+              <span class="hero__rating-stars" aria-hidden="true">
+                <svg class="icon icon--star"><use href="#i-star"/></svg>
+                <svg class="icon icon--star"><use href="#i-star"/></svg>
+                <svg class="icon icon--star"><use href="#i-star"/></svg>
+                <svg class="icon icon--star"><use href="#i-star"/></svg>
+                <svg class="icon icon--star"><use href="#i-star"/></svg>
+              </span>
+              <strong>4.8 من 5</strong>
+              <small>تقييمات تجريبية للعرض</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" aria-label="مميزات الخدمة">
+        <div class="container features__grid">
+          <div class="feature">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg></span>
+            <div><strong>شوي على الفحم</strong><span>نكهة مدخّنة أصيلة</span></div>
+          </div>
+          <div class="feature">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+            <div><strong>مكونات طازجة</strong><span>تحضير عند الطلب</span></div>
+          </div>
+          <div class="feature">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-bike"/></svg></span>
+            <div><strong>توصيل سريع</strong><span data-config="estimatedDelivery">35–45 دقيقة</span></div>
+          </div>
+          <div class="feature">
+            <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg></span>
+            <div><strong>دفع عند التسليم</strong><span>بدون دفع إلكتروني</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="popular" aria-labelledby="popular-title">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <p class="eyebrow">مفضلات الزبائن</p>
+              <h2 id="popular-title">الأكثر طلباً</h2>
+              <p class="section__lead">أصناف يحبها زبائننا حسب بيانات تجريبية — جرّبها مع طلبك القادم.</p>
+            </div>
+            <a class="btn btn--outline btn--sm" href="#menu" data-scroll-to="menu">
+              القائمة الكاملة
+              <svg class="icon icon--flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+          <div class="product-grid product-grid--popular" id="popular-grid"></div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="menu" aria-labelledby="menu-title">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <p class="eyebrow">كل ما تحتاجه</p>
+              <h2 id="menu-title">قائمة الطعام</h2>
+              <p class="section__lead">اختر من البرغر أو الوجبات الجانبية أو المشروبات. الأسعار بالدينار الأردني وتجريبية.</p>
+            </div>
+          </div>
+          <div class="tabs" id="menu-tabs" role="tablist" aria-label="تصنيفات القائمة"></div>
+          <div class="product-grid" id="menu-grid"></div>
+          <p class="menu__note">
+            <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+            جميع الأسعار بالدينار الأردني وتشمل الضريبة. الصور توضيحية للعرض فقط.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about">
+            <div class="about__copy">
+              <p class="eyebrow eyebrow--light">عن المطعم</p>
+              <h2 id="about-title">مطبخ صغير، تفاصيل كبيرة</h2>
+              <p>
+                Burger House مفهوم تجريبي لمطعم برغر عصري في عمّان. نصوغ التجربة حول ثلاث تفاصيل
+                بسيطة: لحم طازج يُفرم يومياً، خبز يُخبز في اليوم نفسه، وصوصات خاصة تُحضَّر في المطبخ.
+              </p>
+              <p class="about__demo">
+                <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+                <span>جميع البيانات والصور والأسعار في هذا الموقع توضيحية، والمطعم غير حقيقي.</span>
+              </p>
+            </div>
+            <ul class="about__list">
+              <li>
+                <span class="about__num">01</span>
+                <div><strong>وصفات محدودة ومركّزة</strong><span>قائمة قصيرة نُتقنها بدل قائمة طويلة.</span></div>
+              </li>
+              <li>
+                <span class="about__num">02</span>
+                <div><strong>تحضير عند الطلب</strong><span>لا شيء يُحضَّر مسبقاً ويُنتظر.</span></div>
+              </li>
+              <li>
+                <span class="about__num">03</span>
+                <div><strong>طلب بدون تعقيد</strong><span>سلة واضحة ورسالة واتساب واحدة تكفي.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ═══════════ صفحة إتمام الطلب ═══════════ -->
+    <div data-view="checkout" hidden>
+      <div class="container checkout">
+        <div class="checkout__head">
+          <a class="link-back" href="#/">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            العودة إلى الرئيسية
+          </a>
+          <h1>إتمام الطلب</h1>
+          <p>أكمل بيانات التوصيل، ثم أرسل الطلب عبر واتساب برسالة جاهزة بكل التفاصيل.</p>
+        </div>
+
+        <div class="checkout__grid">
+          <form class="card checkout__form" id="checkout-form" novalidate>
+            <h2 class="card__title">بيانات التوصيل</h2>
+
+            <div class="field" data-field="name">
+              <label for="customer-name">الاسم الكامل <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="customer-name" name="name" autocomplete="name"
+                     placeholder="مثال: أحمد محمد" required aria-describedby="name-error">
+              <p class="field__error" id="name-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="customer-phone">رقم الهاتف <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="customer-phone" name="phone" autocomplete="tel"
+                     inputmode="tel" dir="ltr" placeholder="07XXXXXXXX" required aria-describedby="phone-error phone-hint">
+              <p class="field__hint" id="phone-hint">رقم موبايل أردني يبدأ بـ 07 — يُستخدم لتأكيد الطلب فقط.</p>
+              <p class="field__error" id="phone-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="address">
+              <label for="customer-address">عنوان التوصيل <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="customer-address" name="address" rows="3" autocomplete="street-address"
+                        placeholder="المنطقة، الشارع، رقم البناية، الطابق، علامة مميزة"
+                        required aria-describedby="address-error"></textarea>
+              <p class="field__error" id="address-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="notes">
+              <label for="customer-notes">ملاحظات الطلب <span class="field__optional">(اختياري)</span></label>
+              <textarea id="customer-notes" name="notes" rows="2" maxlength="300"
+                        placeholder="مثال: بدون مخلل، صوص إضافي، اتصل عند الوصول"
+                        aria-describedby="notes-hint"></textarea>
+              <p class="field__hint" id="notes-hint"><span id="notes-count">0</span>/300 حرف</p>
+            </div>
+
+            <div class="alert alert--warn" id="whatsapp-warning" hidden>
+              <strong>رقم واتساب المطعم غير مُعدّ بعد.</strong>
+              <span>هذه نسخة تجريبية. أضف الرقم في ملف الإعدادات <code>public/js/config.js</code> ثم أعد النشر لتفعيل الإرسال. يمكنك الآن نسخ تفاصيل الطلب.</span>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="submit-order">
+              <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>
+              إرسال الطلب عبر واتساب
+            </button>
+            <p class="form-note">
+              <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+              <span data-config="paymentNote">الدفع نقداً عند التسليم.</span>
+            </p>
+
+            <div class="alert alert--success" id="order-result" hidden role="status">
+              <div>
+                <strong>تم تجهيز رسالة الطلب.</strong>
+                <span>إن لم يفتح واتساب تلقائياً، استخدم الرابط أدناه أو انسخ تفاصيل الطلب.</span>
+              </div>
+              <a class="btn btn--wa btn--sm" id="order-result-link" href="#" target="_blank" rel="noopener">فتح واتساب</a>
+            </div>
+          </form>
+
+          <aside class="card checkout__summary" aria-labelledby="summary-title">
+            <div class="summary__head">
+              <h2 class="card__title" id="summary-title">ملخص الطلب</h2>
+              <button type="button" class="link-btn" data-cart-open>تعديل السلة</button>
+            </div>
+
+            <div class="summary__empty" id="summary-empty" hidden>
+              <p>سلتك فارغة حالياً.</p>
+              <a class="btn btn--outline btn--sm" href="#menu" data-scroll-to="menu">تصفّح القائمة</a>
+            </div>
+
+            <ul class="summary__lines" id="checkout-lines"></ul>
+
+            <dl class="totals" id="checkout-totals">
+              <div class="totals__row">
+                <dt>إجمالي المنتجات <span class="totals__count" id="summary-count"></span></dt>
+                <dd data-summary="subtotal">0.00 د.أ</dd>
+              </div>
+              <div class="totals__row">
+                <dt>رسوم التوصيل</dt>
+                <dd data-summary="delivery">0.00 د.أ</dd>
+              </div>
+              <div class="totals__row totals__row--total">
+                <dt>الإجمالي النهائي</dt>
+                <dd data-summary="total">0.00 د.أ</dd>
+              </div>
+            </dl>
+
+            <p class="summary__note" data-summary="delivery-note"></p>
+
+            <button type="button" class="btn btn--outline btn--block btn--sm" id="copy-order">
+              نسخ تفاصيل الطلب
+              <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+            </button>
+            <p class="summary__fineprint">لن يتم إرسال أي بيانات إلى خادم — يُبنى الطلب في متصفحك ويُرسل عبر واتساب.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ التذييل ═══════════ -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#/" aria-label="Burger House — الصفحة الرئيسية">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+              <path d="M5 13.5c0-4 4.9-7 11-7s11 3 11 7" fill="#F2A93B"/>
+              <path d="M4.5 16h23M5 20h22" stroke="#FBF5EC" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M6 23.5c0 1.4 1.6 2.5 3.5 2.5h13c1.9 0 3.5-1.1 3.5-2.5" fill="#E4571F"/>
+            </svg>
+          </span>
+          <span class="brand__text"><strong>Burger House</strong><small>برغر هاوس</small></span>
+        </a>
+        <p class="footer__tagline" data-config="tagline">برغر طازج مشوي على الفحم، يُحضَّر عند الطلب</p>
+        <p class="footer__demo" data-config="demoNotice">هذا موقع تجريبي.</p>
+      </div>
+
+      <div class="footer__col">
+        <h2 class="footer__title">تواصل معنا</h2>
+        <ul class="footer__list">
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span data-config="address">شارع الأمير محمد، عمّان، الأردن — عنوان تجريبي</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+            <span data-config="phoneDisplay">07X XXX XXXX</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            <a href="mailto:hello@burgerhouse.example" data-config-link="email" dir="ltr">hello@burgerhouse.example</a>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>
+            <span>واتساب الطلبات: <span data-whatsapp-status>غير مُعدّ بعد</span></span>
+          </li>
+        </ul>
+        <a class="footer__map-link" href="https://www.google.com/maps/search/?api=1&query=Amman%2C+Jordan"
+           data-config-link="mapUrl" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+          <span data-config="mapLinkLabel">عرض الموقع التقريبي على الخريطة</span>
+        </a>
+      </div>
+
+      <div class="footer__col">
+        <h2 class="footer__title">مواعيد العمل</h2>
+        <ul class="footer__hours" id="footer-hours"></ul>
+        <p class="footer__area">
+          <svg class="icon" aria-hidden="true"><use href="#i-bike"/></svg>
+          منطقة التوصيل: <span data-config="deliveryArea">عمّان والمناطق المجاورة</span>
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h2 class="footer__title">روابط سريعة</h2>
+        <ul class="footer__links">
+          <li><a href="#menu" data-scroll-to="menu">قائمة الطعام</a></li>
+          <li><a href="#popular" data-scroll-to="popular">الأكثر طلباً</a></li>
+          <li><a href="#about" data-scroll-to="about">عن المطعم</a></li>
+          <li><a href="#/checkout">إتمام الطلب</a></li>
+        </ul>
+        <p class="footer__hours-note">الطلب عبر واتساب فقط في هذه النسخة التجريبية.</p>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span id="footer-year">2025</span> Burger House — موقع تجريبي لأغراض العرض والتطوير.</p>
+      <p>الأسعار بالدينار الأردني · <span data-config="deliveryArea">عمّان والمناطق المجاورة</span></p>
+    </div>
+  </footer>
+
+  <!-- ═══════════ سلة المشتريات (درج جانبي) ═══════════ -->
+  <div class="drawer-overlay" data-cart-close hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden tabindex="-1">
+    <header class="cart-drawer__head">
+      <div>
+        <h2 id="cart-title">سلة المشتريات</h2>
+        <p class="cart-drawer__sub" id="cart-subtitle">0 قطعة</p>
+      </div>
+      <button type="button" class="icon-btn" data-cart-close aria-label="إغلاق السلة">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </header>
+
+    <div class="cart-drawer__body" id="cart-body"></div>
+
+    <footer class="cart-drawer__foot" id="cart-foot">
+      <div class="free-delivery" id="free-delivery" hidden>
+        <p class="free-delivery__text" id="free-delivery-text"></p>
+        <div class="free-delivery__bar"><span id="free-delivery-progress"></span></div>
+      </div>
+      <dl class="totals totals--compact">
+        <div class="totals__row">
+          <dt>إجمالي المنتجات</dt>
+          <dd data-cart-total="subtotal">0.00 د.أ</dd>
+        </div>
+        <div class="totals__row">
+          <dt>رسوم التوصيل</dt>
+          <dd data-cart-total="delivery">0.00 د.أ</dd>
+        </div>
+        <div class="totals__row totals__row--total">
+          <dt>الإجمالي النهائي</dt>
+          <dd data-cart-total="total">0.00 د.أ</dd>
+        </div>
+      </dl>
+      <a class="btn btn--primary btn--block" href="#/checkout" data-go-checkout>
+        إتمام الطلب
+        <svg class="icon icon--flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <button type="button" class="btn btn--text btn--block" data-cart-close>متابعة التسوق</button>
+    </footer>
+  </aside>
+
+  <!-- شريط السلة للجوال -->
+  <div class="mobile-bar" id="mobile-bar" hidden>
+    <div class="mobile-bar__info">
+      <span>الإجمالي</span>
+      <strong data-cart-total="total">0.00 د.أ</strong>
+    </div>
+    <button type="button" class="btn btn--primary" data-cart-open>
+      عرض السلة (<span data-cart-count>0</span>)
+    </button>
+  </div>
+
+  <p class="toast" id="toast" role="status" aria-live="polite"></p>
+  <noscript>
+    <div class="noscript">هذا الموقع يحتاج إلى JavaScript لعرض القائمة وحساب الطلب. الرجاء تفعيله ثم تحديث الصفحة.</div>
+  </noscript>
+</body>
+</html>
