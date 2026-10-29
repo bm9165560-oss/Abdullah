@@ -54,6 +54,12 @@ async function runScenario(browser, contextOptions, label) {
   const context = await browser.newContext({ ...contextOptions, locale: "ar-JO" });
   const page = await context.newPage();
   const pageErrors = [];
+  const failedRequests = [];
+  page.on("response", (response) => {
+    if (response.url().startsWith(BASE_URL) && response.status() >= 400) {
+      failedRequests.push(`${response.status()} ${response.url().replace(BASE_URL, "")}`);
+    }
+  });
   page.on("pageerror", (error) => pageErrors.push(String(error)));
   page.on("console", (message) => {
     if (message.type() === "error") pageErrors.push(`console: ${message.text()}`);
@@ -267,6 +273,12 @@ async function runScenario(browser, contextOptions, label) {
   check(
     cardBox.x >= -1 && cardBox.x + cardBox.width <= viewportWidth + 1,
     "بطاقة المنتج لا تخرج عن حدود الشاشة"
+  );
+
+  /* ————— طلبات فاشلة (404) ————— */
+  check(
+    failedRequests.length === 0,
+    `كل ملفات الموقع (صور، خطوط، أيقونة، سكربتات) تُحمّل بنجاح${failedRequests.length ? ` — فشل: ${failedRequests.join(", ")}` : ""}`
   );
 
   /* ————— أخطاء JS ————— */
