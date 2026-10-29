@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Burger House">
+  <rect width="64" height="64" rx="14" fill="#201711"/>
+  <path d="M12 26c0-7.2 9-13 20-13s20 5.8 20 13z" fill="#e4571f"/>
+  <rect x="10" y="28" width="44" height="5" rx="2.5" fill="#f7e6c4"/>
+  <rect x="11" y="34" width="42" height="7" rx="3.5" fill="#8b5a2b"/>
+  <rect x="10" y="42" width="44" height="5" rx="2.5" fill="#6db33f"/>
+  <path d="M12 48h40c0 4.4-3.6 8-8 8H20c-4.4 0-8-3.6-8-8z" fill="#e4571f" opacity=".85"/>
+  <circle cx="24" cy="20" r="1.4" fill="#fff8ef"/>
+  <circle cx="32" cy="17.5" r="1.4" fill="#fff8ef"/>
+  <circle cx="40" cy="20" r="1.4" fill="#fff8ef"/>
+</svg>
