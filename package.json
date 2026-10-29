@@ -1,0 +1,17 @@
+{
+  "name": "burger-house",
+  "version": "1.0.0",
+  "private": true,
+  "description": "موقع تجريبي لمطعم برغر (Burger House) — عربي RTL، سلة مشتريات، وطلب عبر واتساب",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test tests/unit/",
+    "test:e2e": "node tests/e2e.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {}
+}
