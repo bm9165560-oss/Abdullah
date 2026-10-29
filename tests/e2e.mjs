@@ -190,8 +190,8 @@ async function runScenario(browser, contextOptions, label) {
   const summaryLines = await page.locator("#checkout-lines .summary__line").count();
   check(summaryLines === 1, `ملخّص الطلب يعرض ${summaryLines} سطراً مطابقاً للسلة`);
   check(
-    (await page.locator('#checkout-totals [data-summary="total"]').innerText()).startsWith("6.00"),
-    "إجمالي ملخّص الطلب = 4.50 + 1.50 توصيل = 6.00 د.أ"
+    (await page.locator('#checkout-totals [data-summary="total"]').innerText()).startsWith("10.50"),
+    "إجمالي ملخّص الطلب = 9.00 (2 × 4.50) + 1.50 توصيل = 10.50 د.أ"
   );
 
   // إرسال النموذج فارغاً ← أخطاء تحقق
@@ -239,8 +239,14 @@ async function runScenario(browser, contextOptions, label) {
   await page.goto(`${BASE_URL}/#/`);
   await page.waitForFunction(() => document.querySelectorAll("#checkout-lines .summary__line").length === 1);
   await page.reload({ waitUntil: "networkidle" });
-  await page.waitForFunction(() => document.querySelector(".cart-count")?.textContent === "1");
-  check(true, "السلة محفوظة بعد إعادة تحميل الصفحة (localStorage)");
+  await page.waitForFunction(() => document.querySelector(".cart-count")?.textContent === "2");
+  await page.locator("[data-cart-open]").first().click();
+  await page.locator("#cart-drawer").waitFor({ state: "visible" });
+  const persistedTotal = (await page.locator('#cart-foot [data-cart-total="total"]').innerText()).trim();
+  check(
+    persistedTotal.startsWith("10.50"),
+    `السلة والإجماليات محفوظة بعد إعادة تحميل الصفحة (المعروض: ${persistedTotal})`
+  );
 
   /* ————— التذييل والمحتوى ————— */
   const footerText = (await page.locator(".site-footer").innerText()).replace(/\s+/g, " ");
